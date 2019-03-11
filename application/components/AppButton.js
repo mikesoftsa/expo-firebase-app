@@ -7,7 +7,7 @@ export default class AppButton extends Component {
     render(){
 
         const { action, iconName, iconColor, title, bgColor } = this.props;
-        const { width } = Dimensions.get('window');
+        //const { width } = Dimensions.get('window');
         return(
             <Button
                 onPress={action}
@@ -18,7 +18,7 @@ export default class AppButton extends Component {
                     borderWidth: 0,
                     borderRadius: 5,
                     marginBottom: 5,
-                    width: width
+                    //width: width
                 }}
                 title={title}
                 icon={
