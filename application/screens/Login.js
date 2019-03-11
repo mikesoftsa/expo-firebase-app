@@ -27,8 +27,8 @@ export default class Login extends Component {
 
                 },
                 password: {
-                    help: 'Introduce tu email',
-                    error: 'Email incorrecto',
+                    help: 'Introduce tu password',
+                    error: 'Password incorrecto',
                     password: true,
                     secureTextEntry: true,
                 }
