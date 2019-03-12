@@ -22,7 +22,7 @@ export default class Register extends Component{
             }
         };
 
-        this.samePassword = t.refinement(t.String, () => {
+        this.samePassword = t.refinement(t.String, (s) => {
             return s === this.state.user.password
         });
 
@@ -60,14 +60,23 @@ export default class Register extends Component{
     }
 
     register(){
-        this.validate = this.refs.form.getValue();
-        if(this.validate){
 
+        if(this.validate){
+            firebase.auth().createUserWithEmailAndPassword(
+                this.validate.email, this.validate.password
+            )
+                .then(()=>{
+                    Toast.showWithGravity('Registro correcto, bienvenido', Toast.LONG, Toast.BOTTOM);
+                })
+                .catch((err) => {
+                    Toast.showWithGravity(err.message, Toast.LONG, Toast.BOTTOM);
+                })
         }
     }
 
     onChange(user){
         this.setState({user});
+        this.validate = this.refs.form.getValue();
     }
 
     render(){
