@@ -11,6 +11,8 @@ import FormValidation from "../utils/validation";
 
 import * as firebase from "firebase";
 
+import { ScreenOrientation } from 'expo';
+
 export default class Register extends Component{
     constructor(){
         super();
@@ -78,6 +80,19 @@ export default class Register extends Component{
         this.setState({user});
         this.validate = this.refs.form.getValue();
     }
+
+
+
+    componentDidMount() {
+        ScreenOrientation.allowAsync(ScreenOrientation.Orientation.LANDSCAPE);
+    }
+
+    componentWillUnmount() {
+        ScreenOrientation.allowAsync(ScreenOrientation.Orientation.PORTRAIT);
+    }
+
+
+
 
     render(){
         return(
