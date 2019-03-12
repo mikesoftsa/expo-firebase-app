@@ -9,6 +9,7 @@ import * as firebase from 'firebase';
 firebase.initializeApp(firebaseConfig);
 
 import GuestNavigation from './application/navigations/guest';
+import RestaurantEmpty from "./application/components/Restaurant/RestaurantEmpty";
 
 
 export default class App extends React.Component {
@@ -46,7 +47,7 @@ export default class App extends React.Component {
     }
 
     if(isLogged){
-      return(<Text>Logueado</Text>);
+      return(<RestaurantEmpty text="No hay restaurantes disponibles"/>);
     }
 
     return(<GuestNavigation/>);
