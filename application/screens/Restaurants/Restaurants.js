@@ -28,9 +28,7 @@ export default class Restaurants extends Component {
         this.props.navigation.dispatch(navigateAction);
     }
 
-    restaurantDetail(restaurant){
-        
-    }
+
 
     componentDidMount() {
         this.refRestaurants.on('value', snapshot => {
@@ -49,6 +47,50 @@ export default class Restaurants extends Component {
                 loaded: true
             });
         });
+    }
+
+    renderRestaurant(restaurant){
+        return(
+            <ListItem
+                containerStyle={styles.item}
+                titleStyle={styles.title}
+                roundAvatar
+                title={`${restaurant.name} (Capacidad: ${restaurant.capacity})`}
+                avatar={this.state.restaurant_logo}
+                onPress={() => this.restaurantDetail(restaurant)}
+                rightIcon={{name: 'arrow-right', type:'font-awesome', style: styles.listIconStyle }}
+            />
+        )
+    }
+
+    restaurantDetail(restaurant){
+
+    }
+
+    render(){
+        const { loaded, restaurants } = this.state;
+        if(!loaded){
+            return <PreLoader/>
+        }
+
+        if(!restaurants.length){
+            return(
+                <BackgroundImage source={require('../../../assets/images/bg-auth.png')}>
+                    <RestaurantEmpty text="No hay restaurantes disponibles"/>
+                    <RestaurantAddButton addRestaurant={this.addRestaurant.bind(this)}/>
+                </BackgroundImage>
+            )
+        }
+
+        return (
+            <BackgroundImage source={require('../../../assets/images/bg-auth.png')}>
+                <FlatList
+                    data={restaurants}
+                    renderItem={(data) => this.renderRestaurant(data.item)}
+                />
+                <RestaurantAddButton addRestaurant={this.addRestaurant.bind(this)}/>
+            </BackgroundImage>
+        )
     }
 
 }
