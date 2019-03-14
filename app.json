@@ -28,6 +28,7 @@
     },
     "android": {
       "package": "com.expoapp.mobile"
-    }
+    },
+    "description": ""
   }
 }
