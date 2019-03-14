@@ -22,7 +22,7 @@ export const options = {
         },
         capacity: {
             label: 'Capacidad',
-            placeholder: 'Capacidad de personas',
+            help: 'Capacidad de personas',
             config: {
                 step: 1,
                 min: 1,
