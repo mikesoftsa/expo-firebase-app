@@ -9,8 +9,9 @@ import * as firebase from 'firebase';
 firebase.initializeApp(firebaseConfig);
 
 import GuestNavigation from './application/navigations/guest';
-import RestaurantEmpty from "./application/components/Restaurant/RestaurantEmpty";
+import LoggedNavigation from './application/navigations/logged';
 
+console.disableYellowBox = true;
 
 export default class App extends React.Component {
   constructor(){
@@ -47,7 +48,7 @@ export default class App extends React.Component {
     }
 
     if(isLogged){
-      return(<RestaurantEmpty text="No hay restaurantes disponibles"/>);
+      return (<LoggedNavigation/>)
     }
 
     return(<GuestNavigation/>);
