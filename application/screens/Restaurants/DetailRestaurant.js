@@ -4,6 +4,7 @@ import { ScrollView } from 'react-native';
 
 import BackgroundImage from '../../components/BackgroundImage';
 import Restaurant from '../../components/Restaurant/Restaurant';
+import CommentForm from '../../components/Comment/CommentForm';
 
 export default class DetailRestaurant extends Component {
    constructor(props) {
@@ -32,6 +33,8 @@ export default class DetailRestaurant extends Component {
                         editRestaurant={this.editRestaurant.bind(this)}
                         restaurant={restaurant}
                     />
+
+                    <CommentForm restaurantId={restaurant.id} />
                 </ScrollView>
            </BackgroundImage>
        )

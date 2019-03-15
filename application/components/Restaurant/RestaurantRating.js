@@ -15,7 +15,7 @@ export default class RestaurantRating extends Component {
 
     }
 
-    componentDidMount(){
+    async componentDidMount(){
         this.commentsRef.on("child_added", snapshot => {
             this.commentsRef.on("value", snap => {
                 let comments = [];
@@ -24,12 +24,16 @@ export default class RestaurantRating extends Component {
                 });
 
                 this.setState({
-                    rating: comments.reduce((previus, current) => previus + current, 0)/comments.length
+					rating: comments.reduce((previous, current) => previous + current, 0) / comments.length
                 });
+                
+                if(this.refs.rating){
+                    this.refs.rating.setCurrentRating(
+                        comments.reduce((previous, current) => previous + current, 0) / comments.length
+                    );
+                }
 
-                this.refs.rating.setCurrentRating(
-                    comments.reduce((previus, current) => previus + current, 0)/comments.length
-                );
+				
 
             })
         });
@@ -38,24 +42,16 @@ export default class RestaurantRating extends Component {
 
     render(){
         const { rating } = this.state;
-        if(rating){
-            return(
-                <View>
-                    <Rating 
-                        ref="rating"
-                        imageSize={20}
-                        readonly
-                        startingValue={rating}
-                    />
-                </View>
-            )
-        } else {
-            return (
-                <View>
-                    <Text>No hay puntuaciones</Text>
-                </View>
-            )
-        }
+        return(
+            <View>
+                <Rating
+					ref="rating"
+					imageSize={20}
+					readonly
+					startingValue={rating}
+				/>
+            </View>
+        )
     }
     
 }
