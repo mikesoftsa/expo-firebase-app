@@ -56,7 +56,7 @@ export default class Restaurants extends Component {
                 titleStyle={styles.title}
                 roundAvatar
                 title={`${restaurant.name} (Capacidad: ${restaurant.capacity})`}
-                avatar={this.state.restaurant_logo}
+                leftAvatar={{ source: this.state.restaurant_logo }}
                 onPress={() => this.restaurantDetail(restaurant)}
                 rightIcon={{name: 'arrow-right', type:'font-awesome', style: styles.listIconStyle }}
             />
@@ -96,17 +96,16 @@ export default class Restaurants extends Component {
 }
 
 const styles = StyleSheet.create({
-    title:{
-        color: '#fff'
-    },
-    listIconStyle: {
-        marginRight: 10,
-        fontSize:15,
-        color: 'rgba(255, 38, 74, 0.6)'
-    },
-    item: {
-        padding: 0,
-        backgroundColor: 'rgba(206 , 206, 206, 0.6)'
-    }
-
+	title: {
+		color: '#fff'
+	},
+	listIconStyle: {
+		marginRight: 10,
+		fontSize: 15,
+		color: 'rgba(255, 38, 74, 0.6)'
+	},
+	item: {
+		padding: 10,
+		backgroundColor: 'rgba(206, 206, 206, 0.6)',
+	}
 });
