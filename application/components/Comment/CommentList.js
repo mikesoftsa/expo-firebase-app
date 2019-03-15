@@ -4,6 +4,7 @@ import PreLoader from '../../components/PreLoader';
 import { StyleSheet, FlatList, View} from 'react-native';
 import { Card, Divider, Text } from 'react-native-elements';
 import * as firebase from 'firebase';
+import CommentEmpty from './CommentEmpty';
 
 export default class CommentList extends Component {
     constructor() {
@@ -42,9 +43,7 @@ export default class CommentList extends Component {
 
         if(!comments.length){
             return (
-                <View>
-                    <Text>No hay comentarios</Text>
-                </View>
+                <CommentEmpty />
             )
         }
 
