@@ -5,6 +5,7 @@ import { ScrollView } from 'react-native';
 import BackgroundImage from '../../components/BackgroundImage';
 import Restaurant from '../../components/Restaurant/Restaurant';
 import CommentForm from '../../components/Comment/CommentForm';
+import CommentList from '../../components/Comment/CommentList';
 
 export default class DetailRestaurant extends Component {
    constructor(props) {
@@ -35,6 +36,7 @@ export default class DetailRestaurant extends Component {
                     />
 
                     <CommentForm restaurantId={restaurant.id} />
+                    <CommentList restaurantId={restaurant.id} />
                 </ScrollView>
            </BackgroundImage>
        )
