@@ -3,36 +3,26 @@ import t from "tcomb-form-native";
 const Form = t.form.Form;
 import sliderTemplate from "./templates/slider";
 
-export const Restaurant = t.struct({
-    name: t.String,
-    address: t.String,
-    capacity: t.Number,
-    description: t.String
+export const Comment = t.struct({
+    rating: t.Number,
+    comment: t.maybe(t.String)
 });
 
 export const options = {
     fields: {
-        name: {
-            label: 'Nombre (*)',
-            placeholder: 'Nombre'
-        },
-        address: {
-            label: 'Dirección (*)',
-            placeholder: 'Dirección'
-        },
-        capacity: {
-            label: 'Capacidad',
-            help: 'Capacidad de personas',
+        rating:{
+            label: 'Puntuación',
+            help: 'Qué puntuación le das del 1 al 5?',
+            template: sliderTemplate,
             config: {
                 step: 1,
                 min: 1,
-                max: 100
-            },
-            template: sliderTemplate
+                max: 5
+            }
         },
-        description: {
-            label: 'Descripción (*)',
-            placeholder: 'Descripción',
+        comment: {
+            label: 'Comentario',
+            placeholder: 'Comentario',
             multiline: true,
             stylesheet: {
                 ...Form.stylesheet,
@@ -40,11 +30,11 @@ export const options = {
                     ...Form.stylesheet.text,
                     normal: {
                         ...Form.stylesheet.textbox.normal,
-                        height: 150
+                        height: 50
                     },
                     error: {
                         ...Form.stylesheet.textbox.error,
-                        height: 150
+                        height: 50
                     },
 
                 }
