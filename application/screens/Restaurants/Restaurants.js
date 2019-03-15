@@ -39,7 +39,7 @@ export default class Restaurants extends Component {
                     name: row.val().name,
                     address: row.val().address,
                     capacity: row.val().capacity,
-                    descripcion: row.val().descripcion
+                    description: row.val().description
                 })
             });
             this.setState({

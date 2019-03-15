@@ -17,7 +17,7 @@ export default class AddRestaurant extends Component {
                 name: '',
                 address: '',
                 capacity: 0,
-                descripcion: ''
+                description: ''
             }
         }
     }
