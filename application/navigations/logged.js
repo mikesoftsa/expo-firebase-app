@@ -2,6 +2,7 @@ import React from "react";
 import RestaurantsScreen from "../screens/Restaurants/Restaurants";
 import AddRestaurantScreen from "../screens/Restaurants/AddRestaurant";
 import DetailRestaurantScreen from "../screens/Restaurants/DetailRestaurant";
+import EditRestaurantScreen from "../screens/Restaurants/EditRestaurant";
 import LogoutScreen from "../screens/Logout";
 import { createDrawerNavigator, createStackNavigator, createAppContainer } from "react-navigation";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -57,13 +58,20 @@ const restaurantsScreenStack = createStackNavigator(
             })
         },
         DetailRestaurant: {
-            screen: DetailRestaurantScreen,
-            navigationOptions: ({navigation}) => ({
-                title: 'Detalle del restaurante',
-                headerRight: rightIcon(navigation, 'home'),
-                headerLeft: leftIcon(navigation, 'bars')
-            })
-        }
+			screen: DetailRestaurantScreen,
+			navigationOptions: ({navigation}) => ({
+				title: 'Detalle del restaurante',
+				headerRight: rightIcon(navigation, 'home'),
+				headerLeft: leftIcon(navigation, 'bars'),
+			})
+		},
+		EditRestaurant: {
+			screen: EditRestaurantScreen,
+			navigationOptions: ({ navigation }) => ({
+				title: 'Editar restaurante',  // Title to appear in status bar
+				headerRight: rightIcon(navigation, 'home'),
+			})
+		},
 
     },
     navigationOptions

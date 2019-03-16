@@ -15,7 +15,7 @@ export default class RestaurantRating extends Component {
 
     }
 
-    async componentDidMount(){
+    componentDidMount(){
         this.commentsRef.on("child_added", snapshot => {
             this.commentsRef.on("value", snap => {
                 let comments = [];

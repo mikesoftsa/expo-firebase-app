@@ -65,10 +65,10 @@ export default class Restaurants extends Component {
 
     restaurantDetail(restaurant){
         const navigateAction = NavigationActions.navigate({
-            routeName: 'DetailRestaurant',
-            params: { restaurant }
-        });
-        this.props.navigation.dispatch(navigateAction);
+			routeName: 'DetailRestaurant',
+			params: {restaurant}
+		});
+		this.props.navigation.dispatch(navigateAction);
     }
 
     render(){
