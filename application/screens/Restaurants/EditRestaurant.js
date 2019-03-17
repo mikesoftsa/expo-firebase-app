@@ -18,7 +18,6 @@ export default class EditRestaurant extends Component {
 		this.state = {
 			restaurant: params.restaurant
         };
-        console.log( params.restaurant);
 	}
 
 	update () {

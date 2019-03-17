@@ -15,7 +15,6 @@ export default class DetailRestaurant extends Component {
 		this.state = {
 			restaurant: params.restaurant
         };
-        console.log(params.restaurant)
     }
     
 
